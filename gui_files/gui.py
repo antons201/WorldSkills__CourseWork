@@ -14,7 +14,7 @@ class DefaultWindow(QtWidgets.QMainWindow, DefaultWindowUi.Ui_DefaultWindow):
         super().__init__()
         self.setupUi(self)
         self.show()
-        open_windows["DefaultWindow"] = self
+        open_windows[self.objectName()] = self
         self.AuthDialog = AuthDialog()
         self.init_buttons_actions()
 
@@ -90,7 +90,6 @@ class AuthDialog(QtWidgets.QMainWindow, AuthDialogUi.Ui_AuthDialog):
         super().__init__()
         self.setupUi(self)
         self.LoginButton.clicked.connect(self.log_in)
-        self.window = ""
 
     def log_in(self):
         login = self.LoginEdit.text()
@@ -100,24 +99,21 @@ class AuthDialog(QtWidgets.QMainWindow, AuthDialogUi.Ui_AuthDialog):
 
         if len(user_data) != 0:
             type = int(user_data[len(user_data) - 1])
+
         if type == 1:
-            self.window = AdminWindow()
-            self.window.show()
+            open_windows[AdminWindow().objectName()].show()
             self.close()
             open_windows["DefaultWindow"].close()
         elif type == 2:
-            self.window = CompetitorWindow()
-            self.window.show()
+            open_windows[CompetitorWindow().objectName()].show()
             self.close()
             open_windows["DefaultWindow"].close()
         elif type == 3:
-            self.window = CoordinatorWindow()
-            self.window.show()
+            open_windows[CoordinatorWindow().objectName()].show()
             self.close()
             open_windows["DefaultWindow"].close()
         elif type == 4:
-            self.window = ExpertWindow()
-            self.window.show()
+            open_windows[ExpertWindow().objectName()].show()
             self.close()
             open_windows["DefaultWindow"].close()
         else:
