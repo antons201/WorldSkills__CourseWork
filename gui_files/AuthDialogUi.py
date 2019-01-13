@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'AuthDialogUi.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.2
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -11,9 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_AuthDialog(object):
     def setupUi(self, AuthDialog):
         AuthDialog.setObjectName("AuthDialog")
-        AuthDialog.resize(467, 325)
+        AuthDialog.resize(467, 277)
         self.AuthLabel = QtWidgets.QLabel(AuthDialog)
-        self.AuthLabel.setGeometry(QtCore.QRect(150, 10, 181, 41))
+        self.AuthLabel.setGeometry(QtCore.QRect(130, 10, 231, 41))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
@@ -42,15 +42,11 @@ class Ui_AuthDialog(object):
         self.PasswordEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.PasswordEdit.setObjectName("PasswordEdit")
         self.LoginButton = QtWidgets.QPushButton(AuthDialog)
-        self.LoginButton.setGeometry(QtCore.QRect(150, 250, 81, 31))
+        self.LoginButton.setGeometry(QtCore.QRect(150, 210, 81, 31))
         self.LoginButton.setObjectName("LoginButton")
         self.BackButton = QtWidgets.QPushButton(AuthDialog)
-        self.BackButton.setGeometry(QtCore.QRect(240, 250, 81, 31))
+        self.BackButton.setGeometry(QtCore.QRect(240, 210, 81, 31))
         self.BackButton.setObjectName("BackButton")
-        self.ErrorLabel = QtWidgets.QLabel(AuthDialog)
-        self.ErrorLabel.setGeometry(QtCore.QRect(120, 210, 231, 20))
-        self.ErrorLabel.setText("")
-        self.ErrorLabel.setObjectName("ErrorLabel")
 
         self.retranslateUi(AuthDialog)
         QtCore.QMetaObject.connectSlotsByName(AuthDialog)

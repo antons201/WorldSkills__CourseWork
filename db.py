@@ -2,8 +2,8 @@ import pymysql
 
 connect = pymysql.connect(host='localhost',
                           user='root',
-                          password='Mysqlpass1!',
-                          db='mydb')
+                          password='admin',
+                          db='wsdb')
 
 
 def log_in(login, password):
