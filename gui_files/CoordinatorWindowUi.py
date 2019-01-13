@@ -90,6 +90,9 @@ class Ui_CoordinatorWindow(object):
         self.VolunteersTable.setObjectName("VolunteersTable")
         self.VolunteersTable.setColumnCount(0)
         self.VolunteersTable.setRowCount(0)
+        self.BackButton = QtWidgets.QPushButton(self.VolunteersFrame)
+        self.BackButton.setGeometry(QtCore.QRect(0, 0, 91, 31))
+        self.BackButton.setObjectName("BackButton")
         CoordinatorWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(CoordinatorWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 795, 26))
@@ -124,6 +127,7 @@ class Ui_CoordinatorWindow(object):
         self.DistributeButton.setText(_translate("CoordinatorWindow", "Распределить волонтеров"))
         self.NumVolunteersLabel.setText(_translate("CoordinatorWindow", "Всего волонтеров:"))
         self.InfoNumVolunteersLabel.setText(_translate("CoordinatorWindow", "1"))
+        self.BackButton.setText(_translate("CoordinatorWindow", "Назад"))
         self.menu.setTitle(_translate("CoordinatorWindow", "Профиль"))
         self.LogoutAction.setText(_translate("CoordinatorWindow", "Выйти"))
 

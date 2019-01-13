@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from gui_files import AdminWindowUi, CompetitorWindowUi, CoordinatorWindowUi, DefaultWindowUi, ExpertWindowUi
 from gui_files import AuthDialogUi, CompetitorProfileDialogUi
+from gui_files import DistributeVolunteersUi, InsertVolunteersUi
 
 import db
 
@@ -41,11 +42,61 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
 
 
 class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWindow):
+    def block_frame(self):
+        self.MyProfileFrame.setHidden(True)
+        self.CompetitionFrame.setHidden(True)
+        self.ResultsFrame.setHidden(True)
+    def block_competition_frame(self):
+        self.LinkFrame.setHidden(True)
+        self.PeopleFrame.setHidden(True)
+        self.PlanFrame.setHidden(True)
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         open_windows[self.objectName()] = self
         self.init_buttons_actions()
+        self.block_frame()
+        self.ProfileButton.clicked.connect(self.profile_click)
+        self.CompetitionButton.clicked.connect(self.competition_click)
+        self.ResultsButton.clicked.connect(self.results_click)
+        self.RBackButton.clicked.connect(self.back_click)
+        self.ExitButton.clicked.connect(self.back_click)
+        self.CBackButton.clicked.connect(self.back_click)
+        self.ParticipantButton.clicked.connect(self.participant_expert_click)
+        self.ExpertButton.clicked.connect(self.participant_expert_click)
+        self.PlanButton_4.clicked.connect(self.plan_click)
+        self.InfrastructureButton.clicked.connect(self.infrastructure_shedule_click)
+        self.SheduleButton.clicked.connect(self.infrastructure_shedule_click)
+
+    def profile_click(self):
+        self.MainFrame.setHidden(True)
+        self.MyProfileFrame.setHidden(False)
+
+    def competition_click(self):
+        self.MainFrame.setHidden(True)
+        self.CompetitionFrame.setHidden(False)
+        self.block_competition_frame()
+
+    def results_click(self):
+        self.MainFrame.setHidden(True)
+        self.ResultsFrame.setHidden(False)
+
+    def participant_expert_click(self):
+        self.block_competition_frame()
+        self.PeopleFrame.setHidden(False)
+
+    def plan_click(self):
+        self.block_competition_frame()
+        self.PlanFrame.setHidden(False)
+
+    def back_click(self):
+        self.block_frame()
+        self.MainFrame.setHidden(False)
+
+    def infrastructure_shedule_click(self):
+        self.block_competition_frame()
+        self.LinkFrame.setHidden(False)
 
     def init_buttons_actions(self):
         self.LogoutAction.triggered.connect(self.log_out)
@@ -56,11 +107,46 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
 
 
 class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_CoordinatorWindow):
+    role =''
+    def block_frame(self):
+        self.VolunteersFrame.setHidden(True)
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         open_windows[self.objectName()] = self
         self.init_buttons_actions()
+        self.block_frame()
+        self.ManagingVolunteersButton.clicked.connect(lambda: self.managing_click('volunteers'))
+        self.ManagingSponsorsButton.clicked.connect(lambda: self.managing_click('sponsors'))
+        self.BackButton.clicked.connect(self.back_click)
+        self.InsertButton.clicked.connect(lambda: self.open_insert_window(self.role))
+        self.DistributeButton.clicked.connect(self.open_distribute_window)
+
+    def managing_click(self, manage):
+        self.role = manage
+        self.MainFrame.setHidden(True)
+        self.VolunteersFrame.setHidden(False)
+        if manage == 'sponsors':
+            self.ManagingVolunteersLabel.setText('Управление спонсорами')
+            self.InsertButton.setText('Добавить спонсоров')
+            self.DistributeButton.setHidden(True)
+        if manage == 'volunteers':
+            self.ManagingVolunteersLabel.setText('Управление волонтерами')
+            self.InsertButton.setText('Добавить волонтеров')
+            self.DistributeButton.setHidden(False)
+
+    def open_insert_window(self, role):
+        self.insert = InsertVolunteers(role)
+        self.insert.show()
+
+    def open_distribute_window(self):
+        self.distribute = DistributeVolunteers()
+        self.distribute.show()
+
+    def back_click(self):
+        self.block_frame()
+        self.MainFrame.setHidden(False)
 
     def init_buttons_actions(self):
         self.LogoutAction.triggered.connect(self.log_out)
@@ -119,6 +205,19 @@ class AuthDialog(QtWidgets.QMainWindow, AuthDialogUi.Ui_AuthDialog):
         else:
             self.ErrorLabel.setText("Неправильные данные")
 
+class InsertVolunteers(QtWidgets.QMainWindow, InsertVolunteersUi.Ui_InsertVolunteers):
+    def __init__(self, role):
+        super().__init__()
+        self.setupUi(self)
+        open_windows[self.objectName()] = self
+        if role == 'sponsors':
+            self.InsertLabel.setText('Добавление спонсоров')
+
+class DistributeVolunteers(QtWidgets.QMainWindow, DistributeVolunteersUi.Ui_DistributeVolunteers):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        open_windows[self.objectName()] = self
 
 class CompetitorProfileDialog(QtWidgets.QMainWindow, CompetitorProfileDialogUi.Ui_CompetitorProfileDialog):
     def __init__(self):
