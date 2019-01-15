@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AboutRegion</class>
+ <widget class="QMainWindow" name="AboutRegion">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="HistoryButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>История</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="EventshButton">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>70</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>События</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="HistoryFrame">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>130</y>
+      <width>701</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTextEdit" name="HistoryTextEdit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>671</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Кубань начинается с поля - раздольного и неоглядного. От донских степей до хребтов Кавказа, словно чаша, слегка наклоненная навстречу влажным ветрам Черноморья, раскинулись просторы хлебного края. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Испокон веков влекли и манили к себе широкие нивы по берегам быстрой и своенравной реки, давшей имя этому краю. Кубанская земля слышала рокот копыт сарматской и половецкой конниц, звон золотых монет в кожаных поясах греческих колонистов и генуэзских купцов, могучую поступь русских дружин Тмутаракани, дикие пиры татарских орд и османских турок. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Терзаемые то одними, то другими колонизаторами, долгие годы вели кровопролитную и неравную борьбу аборигены Кубани - адыгейские племена. Иноземные завоеватели, особенно татары и турки, грабили землю, разоряли адыгейские аулы, захватывали и продавали в рабство непокорных горцев, во все гаремы Востока увозили черкесских женщин. Измученные грабежами и насилием, адыги, или, как тогда их называли, черкесы, искали защиты и помощи у своего могущественного северного брата - русского народа. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;В 1552 году в Москву к царю Ивану IV прибыли черкесские послы с просьбой о присоединении Адыгеи к России. Приняв адыгов в свое подданство, Россия помогла изгнать турок из Приазовья. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Черкесский князь Темрюк выдал свою дочь замуж за Ивана Грозного, основал на месте татаро-турецкой крепости Тумнев свой &amp;quot;стольный&amp;quot; город Темрюк. Но не успела осесть пыль за русскими полками, ушедшими с Кубани, как вновь налетели татары и турки и, отодвинув владения черкесов далеко на восток, разрушили Темрюк, на его месте воздвигли свою крепость Адис, из которой их орды совершали опустошительные набеги на владения государства Российского. В 1720 году русские войска вступили на Кубань, чтобы примерно покарать &amp;quot;басурман&amp;quot; и отбить у них охоту разбойничать в российских землях. Но отдельные, даже успешные операции не могли решить спора. Завязалась длительная война с Турцией. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Планомерное заселение Кубани российскими подданными началось после двух русско-турецких войн XVIII века. В 1778 году командующий Кавказским корпусом А.В.Суворов, прибыв на Кубань, начал укреплять южные границы государства. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Прославившемуся в борьбе с турками Черноморскому войску (бывшим запорожцам) Екатерина II даровала 30 июня 1792 года земли Таманского полуострова с окрестностями с целью охраны новых южных границ России. Первая партия строевых казаков во главе с С. Белым прибыла сюда морем и 25 августа 1792 года высадилась в Тамани. Десятилетия спустя - уже после отмены крепостного права - двинулись на Кубань тысячи крестьян из центральных губерний России... &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="EventsFrame">
+    <property name="geometry">
+     <rect>
+      <x>49</x>
+      <y>129</y>
+      <width>701</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTableWidget" name="EventsTable">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>671</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <row>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>6</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Название</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Описание</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Дата проведения</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Сайт</string>
+      </property>
+     </column>
+     <item row="0" column="0">
+      <property name="text">
+       <string>UMIDS</string>
+      </property>
+     </item>
+     <item row="0" column="1">
+      <property name="text">
+       <string>20-я Международная выставка мебели, материалов, комплектующих и оборудования для деревообрабатывающего и мебельного производства</string>
+      </property>
+     </item>
+     <item row="0" column="2">
+      <property name="text">
+       <string>29 марта –01 апреля 2016</string>
+      </property>
+     </item>
+     <item row="0" column="3">
+      <property name="text">
+       <string>www.umids.ru</string>
+      </property>
+     </item>
+     <item row="1" column="0">
+      <property name="text">
+       <string>Indecor Krasnodar</string>
+      </property>
+     </item>
+     <item row="1" column="1">
+      <property name="text">
+       <string>2-я Выставка предметов интерьера и декора</string>
+      </property>
+     </item>
+     <item row="1" column="2">
+      <property name="text">
+       <string>29 марта –01 апреля 2016</string>
+      </property>
+     </item>
+     <item row="1" column="3">
+      <property name="text">
+       <string>www.indecor-krasnodar.ru</string>
+      </property>
+     </item>
+     <item row="2" column="0">
+      <property name="text">
+       <string>Кубаньпродэкспо</string>
+      </property>
+     </item>
+     <item row="2" column="1">
+      <property name="text">
+       <string>10-я Выставка продуктов питания и напитков производителей</string>
+      </property>
+     </item>
+     <item row="2" column="2">
+      <property name="text">
+       <string>25 –27 апреля 2016</string>
+      </property>
+     </item>
+     <item row="2" column="3">
+      <property name="text">
+       <string>www.kubanprodexpo.ru</string>
+      </property>
+     </item>
+     <item row="3" column="0">
+      <property name="text">
+       <string>FoodTech Krasnodar</string>
+      </property>
+     </item>
+     <item row="3" column="1">
+      <property name="text">
+       <string>19-я Выставка оборудования, материалов и ингредиентов для производства продуктов питания и напитков</string>
+      </property>
+     </item>
+     <item row="3" column="2">
+      <property name="text">
+       <string>25 –27 апреля 2016</string>
+      </property>
+     </item>
+     <item row="3" column="3">
+      <property name="text">
+       <string>foodtech-krasnodar.ru</string>
+      </property>
+     </item>
+     <item row="4" column="0">
+      <property name="text">
+       <string>CleanExpo Krasnodar</string>
+      </property>
+     </item>
+     <item row="4" column="1">
+      <property name="text">
+       <string>Международная выставка оборудования и материалов для профессиональной уборки, санитарии, гигиены, химической чистки и стирки</string>
+      </property>
+     </item>
+     <item row="4" column="2">
+      <property name="text">
+       <string>25 –27 апреля 2016</string>
+      </property>
+     </item>
+     <item row="4" column="3">
+      <property name="text">
+       <string>cleanexpo-krasnodar.ru</string>
+      </property>
+     </item>
+     <item row="5" column="0">
+      <property name="text">
+       <string>InterFood Krasnodar</string>
+      </property>
+     </item>
+     <item row="5" column="1">
+      <property name="text">
+       <string>6-я Выставка продуктов питания и напитков</string>
+      </property>
+     </item>
+     <item row="5" column="2">
+      <property name="text">
+       <string>25 –27 апреля 2016</string>
+      </property>
+     </item>
+     <item row="5" column="3">
+      <property name="text">
+       <string>www.inter-food.su</string>
+      </property>
+     </item>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="BackButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Назад</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

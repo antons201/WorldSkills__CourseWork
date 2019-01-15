@@ -47,7 +47,7 @@ class Ui_DefaultWindow(object):
         self.TerritoryButton.setObjectName("TerritoryButton")
         DefaultWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(DefaultWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 30))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
@@ -69,7 +69,8 @@ class Ui_DefaultWindow(object):
         self.WorldSkillsLabel.setText(_translate("DefaultWindow", "WorldSkills Russia 2019"))
         self.WorldSkillsButton.setText(_translate("DefaultWindow", "О WorldSkills"))
         self.WorldSkillsRussiaButton.setText(_translate("DefaultWindow", "О WorldSkills Russia"))
-        self.TerritoryButton.setText(_translate("DefaultWindow", "О Приморском крае"))
+        self.TerritoryButton.setText(_translate("DefaultWindow", "О Краснодарском крае\n"
+" крае"))
         self.menu.setTitle(_translate("DefaultWindow", "Профиль"))
         self.LoginAction.setText(_translate("DefaultWindow", "Войти"))
 
