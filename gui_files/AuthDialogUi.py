@@ -47,6 +47,11 @@ class Ui_AuthDialog(object):
         self.BackButton = QtWidgets.QPushButton(AuthDialog)
         self.BackButton.setGeometry(QtCore.QRect(240, 210, 81, 31))
         self.BackButton.setObjectName("BackButton")
+        self.ErrorLabel = QtWidgets.QLabel(AuthDialog)
+        self.ErrorLabel.setGeometry(QtCore.QRect(134, 110, 211, 20))
+        self.ErrorLabel.setText("")
+        self.ErrorLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.ErrorLabel.setObjectName("ErrorLabel")
 
         self.retranslateUi(AuthDialog)
         QtCore.QMetaObject.connectSlotsByName(AuthDialog)

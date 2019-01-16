@@ -6,10 +6,17 @@ from gui_files import DistributeVolunteersUi, InsertVolunteersUi, InsertUsersUi
 from gui_files import AboutRegion, AboutWorldSkills, AboutWSRussia
 
 import db
+import datetime
 
 open_windows = {}
-
-
+def time():
+    a = datetime.datetime.time(datetime.datetime.now())
+    if a.hour >= 6 and a.hour <= 11:
+        return 'Доброе утро, '
+    elif a.hour >= 12 and a.hour <= 17:
+        return 'Добрый день, '
+    else:
+        return 'Добрый вечер, '
 class DefaultWindow(QtWidgets.QMainWindow, DefaultWindowUi.Ui_DefaultWindow):
     def __init__(self):
         super().__init__()
@@ -117,6 +124,9 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
         open_windows[self.objectName()] = self
         self.init_buttons_actions()
         self.block_frame()
+        self.GreetLabel.setText(time() + db.user_data[1])
+        self.GreetLabel.adjustSize()
+
 
     def init_buttons_actions(self):
         self.LogoutAction.triggered.connect(self.log_out)
@@ -166,6 +176,8 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
         open_windows[self.objectName()] = self
         self.init_buttons_actions()
         self.block_frame()
+        self.GreetLabel.setText(time() + db.user_data[1])
+        self.GreetLabel.adjustSize()
 
     def init_buttons_actions(self):
         self.LogoutAction.triggered.connect(self.log_out)
@@ -251,6 +263,8 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
         open_windows[self.objectName()] = self
         self.init_buttons_actions()
         self.block_frame()
+        self.GreetLabel.setText(time() + db.user_data[1])
+        self.GreetLabel.adjustSize()
 
     def init_buttons_actions(self):
         self.LogoutAction.triggered.connect(self.log_out)
@@ -301,6 +315,8 @@ class ExpertWindow(QtWidgets.QMainWindow, ExpertWindowUi.Ui_ExpertWindow):
         open_windows[self.objectName()] = self
         self.init_buttons_actions()
         self.block_frame()
+        self.GreetLabel.setText(time() + db.user_data[1])
+        self.GreetLabel.adjustSize()
 
     def init_buttons_actions(self):
         self.LogoutAction.triggered.connect(self.log_out)
@@ -345,22 +361,27 @@ class AuthDialog(QtWidgets.QMainWindow, AuthDialogUi.Ui_AuthDialog):
 
         if type == 1:
             open_windows[AdminWindow().objectName()].show()
+            self.ErrorLabel.setText('')
             self.close()
             open_windows["DefaultWindow"].close()
         elif type == 2:
             open_windows[CompetitorWindow().objectName()].show()
+            self.ErrorLabel.setText('')
             self.close()
             open_windows["DefaultWindow"].close()
         elif type == 3:
             open_windows[CoordinatorWindow().objectName()].show()
+            self.ErrorLabel.setText('')
             self.close()
             open_windows["DefaultWindow"].close()
         elif type == 4:
             open_windows[ExpertWindow().objectName()].show()
+            self.ErrorLabel.setText('')
             self.close()
             open_windows["DefaultWindow"].close()
         else:
             self.ErrorLabel.setText("Неправильные данные")
+            pass
 
 class InsertVolunteers(QtWidgets.QMainWindow, InsertVolunteersUi.Ui_InsertVolunteers):
     def __init__(self, role):
