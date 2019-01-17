@@ -229,3 +229,5 @@ def get_all_sponsors():  # возвращает двумерный массив 
 # add_coordinator(['корди', 'Ж', 'Регион', 'почта@почта', 'пароль', '1990-01-01', 2])
 # get_all_competitors_experts(0, 0, 2)
 # get_competence_info(2)
+# add_sponsor(['тест','Ж','Рус','2'])
+# add_volunteer(['ТЕСТ','Ж','Россия','2'])
