@@ -3,8 +3,8 @@ import random
 
 connect = pymysql.connect(host='localhost',
                           user='root',
-                          password='admin',
-                          db='ws')
+                          password='Mysqlpass1!',
+                          db='mydb')
 connect.autocommit(1)
 
 # данные в формате:
