@@ -3,8 +3,8 @@ import random
 
 connect = pymysql.connect(host='localhost',
                           user='root',
-                          password='Mysqlpass1!',
-                          db='mydb')
+                          password='admin',
+                          db='ws')
 connect.autocommit(1)
 
 # данные в формате:
@@ -116,6 +116,10 @@ def add_competitor(data):  # data = [name, gender,region,email,pass,birth,compet
         data[0], data[1], data[2], data[3], data[4], data[5], data[6], login, 2,
         get_current_championship().split('.')[0])
     curr.execute(query)
+    query = "call reg_competitor_result('%s','%s','%s','%s','%s','%s',%s,'%s',%s,%s)" % (
+        data[0], data[1], data[2], data[3], data[4], data[5], data[6], login, 2,
+        get_current_championship().split('.')[0])
+    curr.execute(query)
 
 
 def add_coordinator(data):  # data = [name, gender,region,email,pass,birth]
@@ -132,6 +136,8 @@ def add_volunteer(data):  # data = [name varchar(45), gender varchar(1), region 
     query = "call add_volunteer('%s','%s','%s',%s)" % (data[0], data[1], data[2], data[3])
     print(query)
     curr.execute(query)
+    query = "call add_volunteer_to_competence('%s','%s','%s',%s)" % (data[0], data[1], data[2], data[3])
+    curr.execute(query)
 
 
 def add_sponsor(data):  # data = [name varchar(45), gender varchar(1), region varchar(45), competence int]
@@ -139,6 +145,8 @@ def add_sponsor(data):  # data = [name varchar(45), gender varchar(1), region va
     curr = connect.cursor()
     query = "call add_sponsor('%s','%s','%s',%s)" % (data[0], data[1], data[2], data[3])
     print(query)
+    curr.execute(query)
+    query = "call add_sponsor_to_competence('%s','%s','%s',%s)" % (data[0], data[1], data[2], data[3])
     curr.execute(query)
 
 
@@ -178,11 +186,44 @@ def get_competence_info(data):  # data = id_компетенции
     curr.execute(query)
     result = []
     for i in curr:
-        result.append(i)
+        for j in i:
+            result.append(j)
     print(result)
     return result
 
 
+def change_vol_competence(data):  # data = [айди волонтера. айди компетенции]
+    curr = connect.cursor()
+    query = "call change_vol_competence(%s,%s)" % (data[0], data[1])
+    curr.execute(query)
+    print(query)
+
+def get_all_volunteers():  # возвращает двумерный массив волонтеров в формате:
+    #  id волонтера. имя, регион, пол.
+    curr = connect.cursor()
+    query = 'select * from volunteer'
+    curr.execute(query)
+    data = []
+    for i in curr:
+        temp = []
+        for item in i:
+            temp.append(item)
+        data.append(temp)
+    curr = connect.cursor()
+    return data
+
+def get_all_sponsors():  # возвращает двумерный массив спонсоров в формате:
+    #  id спонсора. имя, регион, пол.
+    curr = connect.cursor()
+    query = 'select * from sponsors'
+    curr.execute(query)
+    data = []
+    for i in curr:
+        temp = []
+        for item in i:
+            temp.append(item)
+        data.append(temp)
+    return data
 # add_expert(['эксперт', 'Ж', 'Регион', 'почта@почта', 'пароль', '1990-01-01', 2])
 # add_competitor(['уч', 'Ж', 'Регион', 'почта@почта', 'пароль', '1990-01-01', 2])
 # add_coordinator(['корди', 'Ж', 'Регион', 'почта@почта', 'пароль', '1990-01-01', 2])

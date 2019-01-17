@@ -106,9 +106,6 @@ class Ui_AboutRegion(object):
         self.EventsTable.setItem(5, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.EventsTable.setItem(5, 3, item)
-        self.BackButton = QtWidgets.QPushButton(self.centralwidget)
-        self.BackButton.setGeometry(QtCore.QRect(10, 10, 93, 28))
-        self.BackButton.setObjectName("BackButton")
         AboutRegion.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(AboutRegion)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
@@ -208,5 +205,4 @@ class Ui_AboutRegion(object):
         item = self.EventsTable.item(5, 3)
         item.setText(_translate("AboutRegion", "www.inter-food.su"))
         self.EventsTable.setSortingEnabled(__sortingEnabled)
-        self.BackButton.setText(_translate("AboutRegion", "Назад"))
 

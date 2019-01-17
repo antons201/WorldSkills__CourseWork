@@ -44,9 +44,6 @@ class Ui_AboutWSRussia(object):
         font.setPointSize(10)
         self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
-        self.BackButton = QtWidgets.QPushButton(self.centralwidget)
-        self.BackButton.setGeometry(QtCore.QRect(10, 10, 93, 28))
-        self.BackButton.setObjectName("BackButton")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(390, 190, 141, 31))
         font = QtGui.QFont()
@@ -73,6 +70,5 @@ class Ui_AboutWSRussia(object):
         self.label_4.setText(_translate("AboutWSRussia", "<a href = \"https://yadi.sk/i/19hVyJyEQRJ8cA\"> ссылка на файл </a>"))
         self.label_5.setText(_translate("AboutWSRussia", "Партнёры и спонсоры:"))
         self.label_6.setText(_translate("AboutWSRussia", "<a href = \"https://worldskills.ru/partneryi-i-sponsoryi.html\"> перейти на сайт </a>"))
-        self.BackButton.setText(_translate("AboutWSRussia", "Назад"))
         self.label_2.setText(_translate("AboutWSRussia", "<a href = \"https://worldskills.ru/\"> worldskills.ru</a>"))
 

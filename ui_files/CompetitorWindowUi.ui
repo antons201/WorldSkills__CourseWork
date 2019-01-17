@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>737</width>
-    <height>514</height>
+    <width>771</width>
+    <height>534</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>20</x>
       <y>10</y>
       <width>761</width>
-      <height>531</height>
+      <height>441</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -106,32 +106,6 @@
       <string>Доброе утро, Имя</string>
      </property>
     </widget>
-    <widget class="QLabel" name="NameChempionshipsLabel">
-     <property name="geometry">
-      <rect>
-       <x>570</x>
-       <y>30</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>название</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="ThisChempionshipsLabel">
-     <property name="geometry">
-      <rect>
-       <x>570</x>
-       <y>10</y>
-       <width>141</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Текущий чемпионат:</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="ResultsFrame">
     <property name="geometry">
@@ -139,7 +113,7 @@
       <x>19</x>
       <y>9</y>
       <width>711</width>
-      <height>481</height>
+      <height>441</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -271,7 +245,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Номер участника</string>
+      <string>Оценки:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -280,10 +254,10 @@
     <widget class="QTableWidget" name="ModulsTable">
      <property name="geometry">
       <rect>
-       <x>390</x>
+       <x>430</x>
        <y>240</y>
-       <width>191</width>
-       <height>81</height>
+       <width>171</width>
+       <height>131</height>
       </rect>
      </property>
     </widget>
@@ -323,7 +297,7 @@
      <property name="geometry">
       <rect>
        <x>530</x>
-       <y>330</y>
+       <y>380</y>
        <width>51</width>
        <height>21</height>
       </rect>
@@ -373,19 +347,6 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="InfoNumUserLabel">
-     <property name="geometry">
-      <rect>
-       <x>490</x>
-       <y>210</y>
-       <width>71</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="InfoIdLabel">
      <property name="geometry">
       <rect>
@@ -412,32 +373,6 @@
       <string>Назад</string>
      </property>
     </widget>
-    <widget class="QLabel" name="NameChempionshipsLabel_4">
-     <property name="geometry">
-      <rect>
-       <x>570</x>
-       <y>30</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>название</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="ThisChempionshipsLabel_4">
-     <property name="geometry">
-      <rect>
-       <x>570</x>
-       <y>10</y>
-       <width>141</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Текущий чемпионат:</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="MyProfileFrame">
     <property name="geometry">
@@ -445,7 +380,7 @@
       <x>19</x>
       <y>9</y>
       <width>711</width>
-      <height>481</height>
+      <height>441</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -760,32 +695,6 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="NameChempionshipsLabel_3">
-     <property name="geometry">
-      <rect>
-       <x>570</x>
-       <y>30</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>название</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="ThisChempionshipsLabel_3">
-     <property name="geometry">
-      <rect>
-       <x>570</x>
-       <y>10</y>
-       <width>141</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Текущий чемпионат:</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="CompetitionFrame">
     <property name="geometry">
@@ -793,7 +702,7 @@
       <x>19</x>
       <y>9</y>
       <width>711</width>
-      <height>451</height>
+      <height>441</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -911,6 +820,9 @@
      </property>
      <property name="text">
       <string>Номер компетенции</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QPushButton" name="SheduleButton">
@@ -1033,36 +945,38 @@
       <string>Назад</string>
      </property>
     </widget>
-    <widget class="QLabel" name="NameChempionshipsLabel_2">
-     <property name="geometry">
-      <rect>
-       <x>570</x>
-       <y>30</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>название</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="ThisChempionshipsLabel_2">
-     <property name="geometry">
-      <rect>
-       <x>570</x>
-       <y>10</y>
-       <width>141</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Текущий чемпионат:</string>
-     </property>
-    </widget>
    </widget>
+   <widget class="QLabel" name="ThisChempionshipsLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>460</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Текущий чемпионат:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NameChempionshipsLabel">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>460</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>название</string>
+    </property>
+   </widget>
+   <zorder>ThisChempionshipsLabel</zorder>
+   <zorder>NameChempionshipsLabel</zorder>
    <zorder>MainFrame</zorder>
-   <zorder>CompetitionFrame</zorder>
    <zorder>MyProfileFrame</zorder>
+   <zorder>CompetitionFrame</zorder>
    <zorder>ResultsFrame</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -1070,7 +984,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>737</width>
+     <width>771</width>
      <height>26</height>
     </rect>
    </property>

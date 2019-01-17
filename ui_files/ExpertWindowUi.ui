@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>771</width>
-    <height>556</height>
+    <height>533</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>20</x>
       <y>10</y>
       <width>761</width>
-      <height>531</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -93,32 +93,6 @@
       <string>Ввод оценок</string>
      </property>
     </widget>
-    <widget class="QLabel" name="NameChempionshipsLabel_2">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>30</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>название</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="ThisChempionshipsLabel_2">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>10</y>
-       <width>141</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Текущий чемпионат:</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="MarksFrame">
     <property name="geometry">
@@ -126,7 +100,7 @@
       <x>19</x>
       <y>9</y>
       <width>741</width>
-      <height>491</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -254,32 +228,6 @@
       <string>Назад</string>
      </property>
     </widget>
-    <widget class="QLabel" name="NameChempionshipsLabel_3">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>30</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>название</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="ThisChempionshipsLabel_3">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>10</y>
-       <width>141</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Текущий чемпионат:</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="ResultsFrame">
     <property name="geometry">
@@ -287,7 +235,7 @@
       <x>19</x>
       <y>9</y>
       <width>741</width>
-      <height>481</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -360,33 +308,38 @@
       <string>Назад</string>
      </property>
     </widget>
-    <widget class="QLabel" name="NameChempionshipsLabel">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>30</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>название</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="ThisChempionshipsLabel">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>10</y>
-       <width>141</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Текущий чемпионат:</string>
-     </property>
-    </widget>
    </widget>
+   <widget class="QLabel" name="ThisChempionshipsLabel_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>450</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Текущий чемпионат:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NameChempionshipsLabel">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>450</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>название</string>
+    </property>
+   </widget>
+   <zorder>ThisChempionshipsLabel_4</zorder>
+   <zorder>NameChempionshipsLabel</zorder>
+   <zorder>MainFrame</zorder>
+   <zorder>MarksFrame</zorder>
+   <zorder>ResultsFrame</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
