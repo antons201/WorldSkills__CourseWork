@@ -198,10 +198,11 @@ def change_vol_competence(data):  # data = [айди волонтера. айд�
     curr.execute(query)
     print(query)
 
+
 def get_all_volunteers():  # возвращает двумерный массив волонтеров в формате:
     #  id волонтера. имя, регион, пол.
     curr = connect.cursor()
-    query = 'select * from volunteer'
+    query = 'select * from Volunteer'
     curr.execute(query)
     data = []
     for i in curr:
@@ -212,10 +213,37 @@ def get_all_volunteers():  # возвращает двумерный масси�
     curr = connect.cursor()
     return data
 
+
 def get_all_sponsors():  # возвращает двумерный массив спонсоров в формате:
     #  id спонсора. имя, регион, пол.
     curr = connect.cursor()
-    query = 'select * from sponsors'
+    query = 'select * from Sponsors'
+    curr.execute(query)
+    data = []
+    for i in curr:
+        temp = []
+        for item in i:
+            temp.append(item)
+        data.append(temp)
+    return data
+
+
+def get_sponsors(comp):
+    curr = connect.cursor()
+    query = 'call get_sponsors(%s)' % comp
+    curr.execute(query)
+    data = []
+    for i in curr:
+        temp = []
+        for item in i:
+            temp.append(item)
+        data.append(temp)
+    return data
+
+
+def get_volunteers(comp):
+    curr = connect.cursor()
+    query = 'call get_volunteer(%s)' % comp
     curr.execute(query)
     data = []
     for i in curr:
