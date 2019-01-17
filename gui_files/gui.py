@@ -1,16 +1,19 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QTableWidgetItem, QTextEdit, QMainWindow, QAction, qApp, QWidget, QToolTip, QSizePolicy, QTableView, QGridLayout, QVBoxLayout, QGroupBox, QComboBox, QSpinBox, QLineEdit, QRadioButton, QPushButton, QLabel, QApplication
-from PyQt5.QtGui     import QIntValidator, QDoubleValidator, QRegExpValidator
-from PyQt5.QtCore    import QRegExp
-
-from gui_files import AdminWindowUi, CompetitorWindowUi, CoordinatorWindowUi, DefaultWindowUi, ExpertWindowUi
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QPixmap, QRegExpValidator
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QTableWidgetItem
+from PyQt5.QtGui import QIcon, QPixmap
+from gui_files import AdminWindowUi, CompetitorWindowUi, CoordinatorWindowUi, DefaultWindowUi, ExpertWindowUi, \
+    PlanWindowUi
 from gui_files import AuthDialogUi, CompetitorProfileDialogUi
 from gui_files import DistributeVolunteersUi, InsertVolunteersUi, InsertUsersUi
 from gui_files import AboutRegion, AboutWorldSkills, AboutWSRussia
 
+import os
 import db
 import datetime
+
+t = '1.png'
 
 open_windows = {}
 head_comp_exp = ['ID', 'Имя', 'Пол', 'Дата рождения', 'Регион']
@@ -365,6 +368,8 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
         self.block_competition_frame()
         self.PlanFrame.setHidden(False)
 
+        open_windows["Plan"] = PlanWindow(db.user_data[len(db.user_data) - 2])
+
     def back_click(self):
         self.block_frame()
         self.MainFrame.setHidden(False)
@@ -421,8 +426,8 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
         self.GreetLabel.setText(time() + db.user_data[1])
         self.GreetLabel.adjustSize()
         chempionship = db.get_current_championship().split('. ')
-        self.NameChempionshipsLabel.setText(chempionship[1])
-        self.NameChempionshipsLabel.adjustSize()
+        self.NameChempionshipsLabel_2.setText(chempionship[1])
+        self.NameChempionshipsLabel_2.adjustSize()
 
     def init_buttons_actions(self):
         self.LogoutAction.triggered.connect(self.log_out)
@@ -709,4 +714,13 @@ class CompetitorProfileDialog(QtWidgets.QMainWindow, CompetitorProfileDialogUi.U
         super().__init__()
         self.setupUi(self)
 
+
+class PlanWindow(QtWidgets.QMainWindow, PlanWindowUi.Ui_PlanWindow):
+    def __init__(self, comp):
+        pixmap = QPixmap(str(os.getcwd()) + '/gui_files/%s.png' % comp)
+
+        super().__init__()
+        self.setupUi(self)
+        self.PicLabel.setPixmap(pixmap.scaled(self.PicLabel.width(),self.PicLabel.height()))
+        self.show()
 # default_win = DefaultWindow()
