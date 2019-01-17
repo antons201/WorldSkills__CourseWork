@@ -21,6 +21,8 @@ head_module = ['Модуль', 'Балл']
 head_comp = ['ID', 'Имя', 'Пол', 'Логин', 'Пароль', 'Дата рождения', 'Регион', 'Email', 'Компетенция']
 head_vol = ['ID', 'Имя', 'Регион', 'Пол']
 head_chemp = ['ID', 'Название', 'Регион', 'Участники', 'Время проведения']
+
+
 def time():
     a = datetime.datetime.time(datetime.datetime.now())
     if a.hour >= 6 and a.hour <= 11:
@@ -29,6 +31,8 @@ def time():
         return 'Добрый день, '
     else:
         return 'Добрый вечер, '
+
+
 class DefaultWindow(QtWidgets.QMainWindow, DefaultWindowUi.Ui_DefaultWindow):
     def __init__(self):
         super().__init__()
@@ -58,6 +62,7 @@ class DefaultWindow(QtWidgets.QMainWindow, DefaultWindowUi.Ui_DefaultWindow):
 
     def show_AuthDialog(self):
         self.AuthDialog.show()
+
 
 class AboutWorldSkillsWindow(QtWidgets.QMainWindow, AboutWorldSkills.Ui_AboutWorldSkills):
     def block_frame(self):
@@ -97,7 +102,6 @@ class AboutWorldSkillsWindow(QtWidgets.QMainWindow, AboutWorldSkills.Ui_AboutWor
             competence = all_competence[i]
             self.CompetitionList.addItem(competence)
 
-
     def championships_click(self):
         self.block_frame()
         self.MainFrame.setHidden(True)
@@ -126,10 +130,10 @@ class AboutWorldSkillsWindow(QtWidgets.QMainWindow, AboutWorldSkills.Ui_AboutWor
         except BaseException as e:
             print(e)
 
-
     def back_click(self):
         self.block_frame()
         self.MainFrame.setHidden(False)
+
 
 class AboutWorldSkillsRussiaWindow(QtWidgets.QMainWindow, AboutWSRussia.Ui_AboutWSRussia):
     def __init__(self):
@@ -139,6 +143,7 @@ class AboutWorldSkillsRussiaWindow(QtWidgets.QMainWindow, AboutWSRussia.Ui_About
         self.label_2.setOpenExternalLinks(True)
         self.label_4.setOpenExternalLinks(True)
         self.label_6.setOpenExternalLinks(True)
+
 
 class AboutRegionWindow(QtWidgets.QMainWindow, AboutRegion.Ui_AboutRegion):
     def block_frame(self):
@@ -163,6 +168,7 @@ class AboutRegionWindow(QtWidgets.QMainWindow, AboutRegion.Ui_AboutRegion):
     def events_click(self):
         self.HistoryFrame.setHidden(True)
         self.EventsFrame.setHidden(False)
+
 
 class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
     def block_frame(self):
@@ -304,7 +310,8 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
         self.InfoNameLabel_2.setText(db.user_data[1])
         self.InfoSexLabel_2.setText(db.user_data[2])
         self.InfoIdLabel_2.setText(db.user_data[3])
-        self.InfoBirthLabel.setText(str(db.user_data[5].year) + '-' + str(db.user_data[5].month) + '-' + str(db.user_data[5].day))
+        self.InfoBirthLabel.setText(
+            str(db.user_data[5].year) + '-' + str(db.user_data[5].month) + '-' + str(db.user_data[5].day))
         self.InfoCountryLabel.setText(db.user_data[6])
         self.InfoEmailLabel.setText(db.user_data[7])
 
@@ -364,6 +371,7 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
                 info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.InfoTable.setItem(i, j, info)
         self.InfoTable.resizeColumnsToContents()
+
     def plan_click(self):
         self.block_competition_frame()
         self.PlanFrame.setHidden(False)
@@ -390,7 +398,8 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
                     num_ls += 1
                 if i == ' ':
                     isspace += 1
-            if len(newPassword) >= 6 and len(newPassword) <= 16 and num_bs != 0 and num_c != 0 and num_ls != 0 and isspace == 0:
+            if len(newPassword) >= 6 and len(
+                    newPassword) <= 16 and num_bs != 0 and num_c != 0 and num_ls != 0 and isspace == 0:
                 self.ErrorLabel.setText('Пароль изменён')
                 db.change_password(newPassword)
             else:
@@ -412,8 +421,10 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
         open_windows[self.objectName()].close()
         open_windows["DefaultWindow"].show()
 
+
 class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_CoordinatorWindow):
-    role =''
+    role = ''
+
     def block_frame(self):
         self.VolunteersFrame.setHidden(True)
 
@@ -522,9 +533,9 @@ class ExpertWindow(QtWidgets.QMainWindow, ExpertWindowUi.Ui_ExpertWindow):
         for i in range(len(all_competitors)):
             self.MCompetitorComboBox.addItem(str(all_competitors[i][0]) + '. ' + str(all_competitors[i][1]))
         for i in range(5):
-            self.ModulComboBox.addItem('Модуль' + str(i+1))
+            self.ModulComboBox.addItem('Модуль' + str(i + 1))
         for i in range(10):
-            self.MarkComboBox.addItem(str(i+1))
+            self.MarkComboBox.addItem(str(i + 1))
         self.MCompetitorComboBox.adjustSize()
         self.MarkComboBox.adjustSize()
         self.ModulComboBox.adjustSize()
@@ -537,7 +548,6 @@ class ExpertWindow(QtWidgets.QMainWindow, ExpertWindowUi.Ui_ExpertWindow):
         for i in range(len(all_competitors)):
             self.CompetitorComboBox.addItem(str(all_competitors[i][0]) + '. ' + str(all_competitors[i][1]))
         self.CompetitorComboBox.adjustSize()
-
 
     def insert(self):
         all_competitors = db.get_all_competitors_experts(db.user_data[9], 0, 2)
@@ -611,6 +621,7 @@ class AuthDialog(QtWidgets.QMainWindow, AuthDialogUi.Ui_AuthDialog):
             self.ErrorLabel.setText("Неправильные данные")
             pass
 
+
 class InsertVolunteers(QtWidgets.QMainWindow, InsertVolunteersUi.Ui_InsertVolunteers):
     def __init__(self, role, parent=None):
         super().__init__(parent)
@@ -649,16 +660,15 @@ class InsertVolunteers(QtWidgets.QMainWindow, InsertVolunteersUi.Ui_InsertVolunt
         self.close()
 
 
-
-
 class DistributeVolunteers(QtWidgets.QMainWindow, DistributeVolunteersUi.Ui_DistributeVolunteers):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         open_windows[self.objectName()] = self
 
+
 class InsertUsers(QtWidgets.QMainWindow, InsertUsersUi.Ui_InsertUsers):
-    def __init__(self, status , parent=None):
+    def __init__(self, status, parent=None):
         super().__init__(parent)
         self.setupUi(self)
         open_windows[self.objectName()] = self
@@ -721,6 +731,9 @@ class PlanWindow(QtWidgets.QMainWindow, PlanWindowUi.Ui_PlanWindow):
 
         super().__init__()
         self.setupUi(self)
-        self.PicLabel.setPixmap(pixmap.scaled(self.PicLabel.width(),self.PicLabel.height()))
+        self.resize(pixmap.width(), pixmap.height())
+        self.PicLabel.resize(pixmap.width(), pixmap.height())
+        self.PicLabel.setPixmap(
+            pixmap.scaled(self.PicLabel.width(), self.PicLabel.height(), QtCore.Qt.KeepAspectRatio))
         self.show()
 # default_win = DefaultWindow()

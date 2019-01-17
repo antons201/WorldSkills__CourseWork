@@ -228,7 +228,8 @@ def get_all_sponsors():  # возвращает двумерный массив 
     return data
 
 
-def get_sponsors(comp):
+def get_sponsors(comp):  # принимает номер компетенции в формате строки
+    # id спонсора. имя, регион, пол.
     curr = connect.cursor()
     query = 'call get_sponsors(%s)' % comp
     curr.execute(query)
@@ -242,6 +243,8 @@ def get_sponsors(comp):
 
 
 def get_volunteers(comp):
+    # принимает номер компетенции в формате строки
+    # id волонтера. имя, регион, пол.
     curr = connect.cursor()
     query = 'call get_volunteer(%s)' % comp
     curr.execute(query)
