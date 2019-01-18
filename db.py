@@ -23,8 +23,8 @@ def log_in(login, password):
     if len(user_data) > 0:
         user_data.append(int(get_current_championship().split('.')[0]))
     print(user_data)
-    get_all_competitors_experts(0, 0, 2)
-    # add_competitor(['заебало', 'Ж', 'Регион', 'почта@почта', 'пароль', '1990-01-01', 2])
+    # get_all_competitors_experts(0, 0, 2)
+
 
 
 def get_all_competences():  # возвращает массив строк в формате: idКомпетенции. НазваниеКомпетенции.
