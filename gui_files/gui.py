@@ -218,6 +218,7 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
         self.CompetitorFrame.setHidden(False)
         self.MainFrame.setHidden(True)
         all_competence = db.get_all_competences()
+        self.CompetitionComboBox.clear()
         for i in range(len(all_competence)):
             self.CompetitionComboBox.addItem(all_competence[i])
         self.CompetitionComboBox.adjustSize()
@@ -314,6 +315,12 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
             str(db.user_data[5].year) + '-' + str(db.user_data[5].month) + '-' + str(db.user_data[5].day))
         self.InfoCountryLabel.setText(db.user_data[6])
         self.InfoEmailLabel.setText(db.user_data[7])
+        self.InfoNameLabel_2.adjustSize()
+        self.InfoSexLabel_2.adjustSize()
+        self.InfoIdLabel_2.adjustSize()
+        self.InfoBirthLabel.adjustSize()
+        self.InfoCountryLabel.adjustSize()
+        self.InfoEmailLabel.adjustSize()
 
     def competition_click(self):
         self.MainFrame.setHidden(True)
@@ -321,7 +328,7 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
         self.block_competition_frame()
         self.NumCompetenceLabel.setText(str(db.user_data[9]))
         competence = db.get_competence_info(db.user_data[9])
-        self.NameCompetenceLabel.setText(competence[1])
+        self.NameCompetenceLabel.setText(' - ' + competence[1])
 
     def results_click(self):
         self.MainFrame.setHidden(True)
@@ -333,6 +340,12 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
         self.InfoChempionshipLabel.setText(str(db.user_data[10]))
         competence = db.get_competence_info(db.user_data[9])
         self.InfoCompetenceLabel.setText(competence[1])
+        self.InfoNameLabel.adjustSize()
+        self.InfoSexLabel.adjustSize()
+        self.InfoIdLabel.adjustSize()
+        self.InfoRegionLabel.adjustSize()
+        self.InfoChempionshipLabel.adjustSize()
+        self.InfoCompetenceLabel.adjustSize()
         marks = db.show_marks(db.user_data[0])
         self.ModulsTable.setRowCount(len(marks))
         self.ModulsTable.setColumnCount(2)
@@ -447,6 +460,7 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
         self.BackButton.clicked.connect(self.back_click)
         self.InsertButton.clicked.connect(lambda: self.open_insert_window(self.role))
         self.DistributeButton.clicked.connect(self.open_distribute_window)
+        self.SearchButton.clicked.connect(self.search_click)
 
     def managing_click(self, manage):
         self.role = manage
@@ -478,6 +492,7 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
         self.VolunteersTable.resizeColumnsToContents()
         self.InfoNumVolunteersLabel.setText(str(len(data)))
         all_competence = db.get_all_competences()
+        self.CompetenceComboBox.clear()
         for i in range(len(all_competence)):
             self.CompetenceComboBox.addItem(all_competence[i])
         self.CompetenceComboBox.adjustSize()
@@ -487,8 +502,28 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
         self.insert.show()
 
     def open_distribute_window(self):
-        self.distribute = DistributeVolunteers()
+        self.distribute = DistributeVolunteers(self)
         self.distribute.show()
+
+    def search_click(self):
+        all_competence = db.get_all_competences()
+        competence = all_competence[self.CompetenceComboBox.currentIndex()].split('. ')
+        if self.role == 'sponsors':
+            data = db.get_sponsors(competence[0])
+        else:
+            data = db.get_volunteers(competence[0])
+        size_str = 0
+        if len(data) != 0:
+            size_str = len(data[0])
+        self.VolunteersTable.setRowCount(len(data))
+        self.VolunteersTable.setColumnCount(size_str)
+        self.VolunteersTable.setHorizontalHeaderLabels(head_vol)
+        for i in range(len(data)):
+            for j in range(size_str):
+                info = QTableWidgetItem(str(data[i][j]))
+                info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
+                self.VolunteersTable.setItem(i, j, info)
+        self.VolunteersTable.resizeColumnsToContents()
 
     def back_click(self):
         self.block_frame()
@@ -530,6 +565,9 @@ class ExpertWindow(QtWidgets.QMainWindow, ExpertWindowUi.Ui_ExpertWindow):
         self.MainFrame.setHidden(True)
         self.MarksFrame.setHidden(False)
         all_competitors = db.get_all_competitors_experts(db.user_data[9], 0, 2)
+        self.MCompetitorComboBox.clear()
+        self.ModulComboBox.clear()
+        self.MarkComboBox.clear()
         for i in range(len(all_competitors)):
             self.MCompetitorComboBox.addItem(str(all_competitors[i][0]) + '. ' + str(all_competitors[i][1]))
         for i in range(5):
@@ -545,6 +583,7 @@ class ExpertWindow(QtWidgets.QMainWindow, ExpertWindowUi.Ui_ExpertWindow):
         self.MainFrame.setHidden(True)
         self.ResultsFrame.setHidden(False)
         all_competitors = db.get_all_competitors_experts(db.user_data[9], 0, 2)
+        self.CompetitorComboBox.clear()
         for i in range(len(all_competitors)):
             self.CompetitorComboBox.addItem(str(all_competitors[i][0]) + '. ' + str(all_competitors[i][1]))
         self.CompetitorComboBox.adjustSize()
@@ -661,11 +700,50 @@ class InsertVolunteers(QtWidgets.QMainWindow, InsertVolunteersUi.Ui_InsertVolunt
 
 
 class DistributeVolunteers(QtWidgets.QMainWindow, DistributeVolunteersUi.Ui_DistributeVolunteers):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent)
         self.setupUi(self)
         open_windows[self.objectName()] = self
+        all_competence = db.get_all_competences()
+        for i in range(len(all_competence)):
+            self.CompetenceComboBox.addItem(all_competence[i])
+        self.CompetenceComboBox.adjustSize()
+        for i in range(len(all_competence)):
+            self.NewCompetenceComboBox.addItem(all_competence[i])
+        self.NewCompetenceComboBox.adjustSize()
+        self.SearchButton.clicked.connect(self.search_click)
+        self.DistributeButton.clicked.connect(lambda: self.distribute_click(parent))
 
+    def search_click(self):
+        all_competence = db.get_all_competences()
+        competence = all_competence[self.CompetenceComboBox.currentIndex()].split('. ')
+        data = db.get_volunteers(competence[0])
+        size_str = 0
+        if len(data) != 0:
+            size_str = len(data[0])
+        self.VolunteersTable.setRowCount(len(data))
+        self.VolunteersTable.setColumnCount(size_str)
+        self.VolunteersTable.setHorizontalHeaderLabels(head_vol)
+        for i in range(len(data)):
+            for j in range(size_str):
+                info = QTableWidgetItem(str(data[i][j]))
+                info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
+                self.VolunteersTable.setItem(i, j, info)
+        self.VolunteersTable.resizeColumnsToContents()
+
+    def distribute_click(self, parent):
+        try:
+            all_competence = db.get_all_competences()
+            id = self.VolunteersTable.selectionModel().selectedRows()
+            for index in sorted(id):
+                str_id = self.VolunteersTable.item(index.row(), 0).text()
+            competence = all_competence[self.NewCompetenceComboBox.currentIndex()].split('. ')
+            data = (str_id, competence[0])
+            db.change_vol_competence(data)
+            self.close()
+            CoordinatorWindow.search_click(parent)
+        except BaseException as e:
+            print(e)
 
 class InsertUsers(QtWidgets.QMainWindow, InsertUsersUi.Ui_InsertUsers):
     def __init__(self, status, parent=None):
@@ -723,7 +801,6 @@ class CompetitorProfileDialog(QtWidgets.QMainWindow, CompetitorProfileDialogUi.U
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-
 
 class PlanWindow(QtWidgets.QMainWindow, PlanWindowUi.Ui_PlanWindow):
     def __init__(self, comp):
