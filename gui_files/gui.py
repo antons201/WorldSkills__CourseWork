@@ -116,8 +116,11 @@ class AboutWorldSkillsWindow(QtWidgets.QMainWindow, AboutWorldSkills.Ui_AboutWor
         for i in range(len(chempionships)):
             for j in range(num_column):
                 info = QTableWidgetItem(str(chempionships[i][j]))
+                info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.ChampionshipsTable.setItem(i, j, info)
-        self.ChampionshipsTable.resizeColumnsToContents()
+        header = self.ChampionshipsTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.ChampionshipsTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def search(self):
         try:
@@ -168,6 +171,9 @@ class AboutRegionWindow(QtWidgets.QMainWindow, AboutRegion.Ui_AboutRegion):
     def events_click(self):
         self.HistoryFrame.setHidden(True)
         self.EventsFrame.setHidden(False)
+        header = self.EventsTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.EventsTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
 
 class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
@@ -211,8 +217,11 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
         for i in range(len(chempionships)):
             for j in range(num_column):
                 info = QTableWidgetItem(str(chempionships[i][j]))
+                info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.ChempionshipsTable.setItem(i, j, info)
-        self.ChempionshipsTable.resizeColumnsToContents()
+        header = self.ChempionshipsTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.ChempionshipsTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def managing_competitor_click(self):
         self.CompetitorFrame.setHidden(False)
@@ -234,7 +243,9 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
                 info = QTableWidgetItem(str(data[i][j]))
                 info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.CompetitorTable.setItem(i, j, info)
-        self.CompetitorTable.resizeColumnsToContents()
+        header = self.CompetitorTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.CompetitorTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def search_click(self):
         all_competence = db.get_all_competences()
@@ -251,7 +262,9 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
                 info = QTableWidgetItem(str(data[i][j]))
                 info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.CompetitorTable.setItem(i, j, info)
-        self.CompetitorTable.resizeColumnsToContents()
+        header = self.CompetitorTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.CompetitorTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def open_insert_window(self, status):
         self.insert = InsertUsers(status, self)
@@ -358,8 +371,11 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
                 else:
                     info = QTableWidgetItem(str(marks[i][j]))
                     sum += marks[i][j]
+                info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.ModulsTable.setItem(i, j, info)
-        self.ModulsTable.resizeColumnsToContents()
+        header = self.ModulsTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.ModulsTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
         self.SumLabel.setText("Результат: "+str(sum))
 
     def participant_expert_click(self, role):
@@ -384,6 +400,9 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
                 info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.InfoTable.setItem(i, j, info)
         self.InfoTable.resizeColumnsToContents()
+        header = self.InfoTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.InfoTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def plan_click(self):
         self.block_competition_frame()
@@ -489,7 +508,9 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
                 info = QTableWidgetItem(str(data[i][j]))
                 info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.VolunteersTable.setItem(i, j, info)
-        self.VolunteersTable.resizeColumnsToContents()
+        header = self.VolunteersTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
         self.InfoNumVolunteersLabel.setText(str(len(data)))
         all_competence = db.get_all_competences()
         self.CompetenceComboBox.clear()
@@ -523,7 +544,9 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
                 info = QTableWidgetItem(str(data[i][j]))
                 info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.VolunteersTable.setItem(i, j, info)
-        self.VolunteersTable.resizeColumnsToContents()
+        header = self.VolunteersTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def back_click(self):
         self.block_frame()
@@ -609,8 +632,11 @@ class ExpertWindow(QtWidgets.QMainWindow, ExpertWindowUi.Ui_ExpertWindow):
                     info = QTableWidgetItem('Модуль ' + str(marks[i][j]))
                 else:
                     info = QTableWidgetItem(str(marks[i][j]))
+                info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.ResultsWidget.setItem(i, j, info)
-        self.ResultsWidget.resizeColumnsToContents()
+        header = self.ResultsWidget.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.ResultsWidget.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def back_click(self):
         self.block_frame()
@@ -680,6 +706,7 @@ class InsertVolunteers(QtWidgets.QMainWindow, InsertVolunteersUi.Ui_InsertVolunt
         self.NameEdit.setValidator(pValidator)
         self.RegionEdit.setValidator(pValidator)
 
+
     def insert(self, role, parent):
         all_competence = db.get_all_competences()
         name = self.NameEdit.text()
@@ -729,7 +756,9 @@ class DistributeVolunteers(QtWidgets.QMainWindow, DistributeVolunteersUi.Ui_Dist
                 info = QTableWidgetItem(str(data[i][j]))
                 info.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
                 self.VolunteersTable.setItem(i, j, info)
-        self.VolunteersTable.resizeColumnsToContents()
+        header = self.VolunteersTable.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def distribute_click(self, parent):
         try:
@@ -769,6 +798,7 @@ class InsertUsers(QtWidgets.QMainWindow, InsertUsersUi.Ui_InsertUsers):
         self.PasswordEdit.setValidator(mValidator)
         self.EmailEdit.setValidator(mValidator)
         self.ErrorLabel.setText('')
+        self.CompetenceComboBox.adjustSize()
 
     def insert_user(self, status, parent):
         all_competence = db.get_all_competences()
