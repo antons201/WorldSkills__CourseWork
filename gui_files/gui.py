@@ -360,7 +360,7 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
                     sum += marks[i][j]
                 self.ModulsTable.setItem(i, j, info)
         self.ModulsTable.resizeColumnsToContents()
-        self.SumLabel.setText(str(sum))
+        self.SumLabel.setText("Результат: "+str(sum))
 
     def participant_expert_click(self, role):
         self.block_competition_frame()

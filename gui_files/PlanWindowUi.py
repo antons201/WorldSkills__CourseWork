@@ -11,11 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_PlanWindow(object):
     def setupUi(self, PlanWindow):
         PlanWindow.setObjectName("PlanWindow")
-        PlanWindow.resize(813, 600)
+        PlanWindow.resize(813, 741)
         self.centralwidget = QtWidgets.QWidget(PlanWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.PicLabel = QtWidgets.QLabel(self.centralwidget)
-        self.PicLabel.setGeometry(QtCore.QRect(0, 0, 781, 541))
+        self.PicLabel.setGeometry(QtCore.QRect(0, 0, 781, 681))
         self.PicLabel.setText("")
         self.PicLabel.setObjectName("PicLabel")
         PlanWindow.setCentralWidget(self.centralwidget)

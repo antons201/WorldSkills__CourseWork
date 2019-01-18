@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'AuthDialogUi.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.11.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -43,6 +43,17 @@ class Ui_AuthDialog(object):
         self.PasswordEdit.setObjectName("PasswordEdit")
         self.LoginButton = QtWidgets.QPushButton(AuthDialog)
         self.LoginButton.setGeometry(QtCore.QRect(150, 210, 81, 31))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 85, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 85, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 85, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        self.LoginButton.setPalette(palette)
         self.LoginButton.setObjectName("LoginButton")
         self.BackButton = QtWidgets.QPushButton(AuthDialog)
         self.BackButton.setGeometry(QtCore.QRect(240, 210, 81, 31))

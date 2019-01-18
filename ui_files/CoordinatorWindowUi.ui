@@ -23,6 +23,9 @@
       <height>501</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
@@ -103,6 +106,9 @@
       <height>501</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
@@ -132,9 +138,9 @@
     <widget class="QLabel" name="CompetenceLabel">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>120</y>
-       <width>111</width>
+       <width>91</width>
        <height>31</height>
       </rect>
      </property>
@@ -151,19 +157,19 @@
      <property name="geometry">
       <rect>
        <x>190</x>
-       <y>130</y>
+       <y>121</y>
        <width>73</width>
-       <height>22</height>
+       <height>31</height>
       </rect>
      </property>
     </widget>
     <widget class="QPushButton" name="SearchButton">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>160</y>
+       <x>90</x>
+       <y>170</y>
        <width>93</width>
-       <height>28</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -173,11 +179,48 @@
     <widget class="QPushButton" name="InsertButton">
      <property name="geometry">
       <rect>
-       <x>470</x>
+       <x>450</x>
        <y>120</y>
-       <width>161</width>
-       <height>41</height>
+       <width>181</width>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>85</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>85</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>85</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
      </property>
      <property name="text">
       <string>Добавить волонтеров</string>
@@ -186,11 +229,48 @@
     <widget class="QPushButton" name="DistributeButton">
      <property name="geometry">
       <rect>
-       <x>470</x>
+       <x>450</x>
        <y>170</y>
-       <width>161</width>
-       <height>41</height>
+       <width>181</width>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>85</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>85</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>85</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
      </property>
      <property name="text">
       <string>Распределить волонтеров</string>
@@ -199,11 +279,19 @@
     <widget class="QLabel" name="NumVolunteersLabel">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>90</x>
        <y>230</y>
-       <width>111</width>
-       <height>16</height>
+       <width>161</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+       <underline>true</underline>
+      </font>
      </property>
      <property name="text">
       <string>Всего волонтеров:</string>
@@ -212,11 +300,19 @@
     <widget class="QLabel" name="InfoNumVolunteersLabel">
      <property name="geometry">
       <rect>
-       <x>380</x>
+       <x>250</x>
        <y>230</y>
        <width>55</width>
-       <height>16</height>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+       <underline>true</underline>
+      </font>
      </property>
      <property name="text">
       <string>1</string>
@@ -262,9 +358,9 @@
    <widget class="QLabel" name="NameChempionshipsLabel_2">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>170</x>
       <y>520</y>
-      <width>81</width>
+      <width>231</width>
       <height>16</height>
      </rect>
     </property>
@@ -272,10 +368,10 @@
      <string>название</string>
     </property>
    </widget>
-   <zorder>VolunteersFrame</zorder>
    <zorder>ThisChempionshipsLabel_2</zorder>
    <zorder>NameChempionshipsLabel_2</zorder>
    <zorder>MainFrame</zorder>
+   <zorder>VolunteersFrame</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -283,7 +379,7 @@
      <x>0</x>
      <y>0</y>
      <width>795</width>
-     <height>26</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
