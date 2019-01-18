@@ -759,12 +759,15 @@ class InsertUsers(QtWidgets.QMainWindow, InsertUsersUi.Ui_InsertUsers):
             self.CompetitionLabel.setHidden(True)
             self.CompetenceComboBox.setHidden(True)
         reg = QRegExp("[а-яА-Яa-zA-Z- 0-9]{40}")
+        reg_mail = QRegExp("[а-яА-Яa-zA-Z- @.0-9]{40}")
         pValidator = QRegExpValidator(self)
         pValidator.setRegExp(reg)
+        mValidator = QRegExpValidator(self)
+        mValidator.setRegExp(reg_mail)
         self.NameEdit.setValidator(pValidator)
         self.RegionEdit.setValidator(pValidator)
-        self.PasswordEdit.setValidator(pValidator)
-        self.EmailEdit.setValidator(pValidator)
+        self.PasswordEdit.setValidator(mValidator)
+        self.EmailEdit.setValidator(mValidator)
         self.ErrorLabel.setText('')
 
     def insert_user(self, status, parent):
