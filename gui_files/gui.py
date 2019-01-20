@@ -221,7 +221,7 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
                 self.ChempionshipsTable.setItem(i, j, info)
         header = self.ChempionshipsTable.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(self.ChempionshipsTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
+        # header.setSectionResizeMode(self.ChempionshipsTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def managing_competitor_click(self):
         self.CompetitorFrame.setHidden(False)
@@ -245,7 +245,7 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
                 self.CompetitorTable.setItem(i, j, info)
         header = self.CompetitorTable.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(self.CompetitorTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
+        # header.setSectionResizeMode(self.CompetitorTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def search_click(self):
         all_competence = db.get_all_competences()
@@ -264,7 +264,7 @@ class AdminWindow(QtWidgets.QMainWindow, AdminWindowUi.Ui_AdminWindow):
                 self.CompetitorTable.setItem(i, j, info)
         header = self.CompetitorTable.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(self.CompetitorTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
+        # header.setSectionResizeMode(self.CompetitorTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def open_insert_window(self, status):
         self.insert = InsertUsers(status, self)
@@ -301,6 +301,7 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
         chempionship = db.get_current_championship().split('. ')
         self.NameChempionshipsLabel.setText(chempionship[1])
         self.NameChempionshipsLabel.adjustSize()
+        self.InfoLinkLabel.setOpenExternalLinks(True)
 
     def init_buttons_actions(self):
         self.LogoutAction.triggered.connect(self.log_out)
@@ -402,7 +403,7 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
         self.InfoTable.resizeColumnsToContents()
         header = self.InfoTable.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(self.InfoTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
+        # header.setSectionResizeMode(self.InfoTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def plan_click(self):
         self.block_competition_frame()
@@ -447,6 +448,7 @@ class CompetitorWindow(QtWidgets.QMainWindow, CompetitorWindowUi.Ui_CompetitorWi
             self.InfoLinkLabel.setText(competence[5])
         else:
             self.InfoLinkLabel.setText(competence[4])
+
         self.InfoLinkLabel.adjustSize()
 
     def log_out(self):
@@ -510,7 +512,7 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
                 self.VolunteersTable.setItem(i, j, info)
         header = self.VolunteersTable.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
+        # header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
         self.InfoNumVolunteersLabel.setText(str(len(data)))
         all_competence = db.get_all_competences()
         self.CompetenceComboBox.clear()
@@ -546,7 +548,7 @@ class CoordinatorWindow(QtWidgets.QMainWindow, CoordinatorWindowUi.Ui_Coordinato
                 self.VolunteersTable.setItem(i, j, info)
         header = self.VolunteersTable.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
+        # header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def back_click(self):
         self.block_frame()
@@ -636,7 +638,7 @@ class ExpertWindow(QtWidgets.QMainWindow, ExpertWindowUi.Ui_ExpertWindow):
                 self.ResultsWidget.setItem(i, j, info)
         header = self.ResultsWidget.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(self.ResultsWidget.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
+        # header.setSectionResizeMode(self.ResultsWidget.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def back_click(self):
         self.block_frame()
@@ -758,7 +760,7 @@ class DistributeVolunteers(QtWidgets.QMainWindow, DistributeVolunteersUi.Ui_Dist
                 self.VolunteersTable.setItem(i, j, info)
         header = self.VolunteersTable.horizontalHeader()
         header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
+        # header.setSectionResizeMode(self.VolunteersTable.columnCount() - 1, QtWidgets.QHeaderView.Stretch)
 
     def distribute_click(self, parent):
         try:

@@ -29,7 +29,7 @@ def log_in(login, password):
 
 def get_all_competences():  # возвращает массив строк в формате: idКомпетенции. НазваниеКомпетенции.
     curr = connect.cursor()
-    query = "select id, name from Competence where id != 999"
+    query = "select id, name from Competence where id != 999 order by id"
     curr.execute(query)
     data = []
     for i in curr:
@@ -133,6 +133,7 @@ def add_coordinator(data):  # data = [name, gender,region,email,pass,birth]
 
 def add_volunteer(data):  # data = [name varchar(45), gender varchar(1), region varchar(45), competence int]
     curr = connect.cursor()
+
     query = "call add_volunteer('%s','%s','%s',%s)" % (data[0], data[1], data[2], data[3])
     print(query)
     curr.execute(query)
